@@ -1,0 +1,13 @@
+
+.full {
+    background: url('../images/1008-792.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.btn-toolbar.meteor-btn-toolbar{
+  display: inline-block;
+}
+
+.jumbotron{
+	background:green !important;
+}
