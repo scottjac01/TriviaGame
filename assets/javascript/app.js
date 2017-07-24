@@ -19,21 +19,46 @@ var	guess4 = ["San Jose Sharks", "Nashville Predators", "New York Rangers", "Pit
 var	guess5 = ["Charlie Ward", "Jameis Winston", "Deion Sanders", "Chris Weinke"];
 
 
-var setTimerSeconds = 30;
+var setTimerSeconds = 90;
 var isBtnEnabled = true;
+var intervalId;
+
+//Create the timer function to countdown the time
+	function run() {
+	  intervalId = setInterval(decrease, 1000);
+	}
+
+	//  The decrease time function.
+	function decrease() {
+	  setTimerSeconds--;
+	  $("#timer").html("<h2>" + setTimerSeconds + "</h2>");
+	  if (setTimerSeconds === 0) {
+	    stop();
+	  }
+	}
+
+//  The stop function
+function stop() {
+  clearInterval(intervalId);
+  setTimerSeconds =90;
+}
 
 //When the start button is pushed create the divs and start the game.  Set the timer and start countdown.  Display the questions and choices
 $("#btnId").click( function(){
 	for(var i = 0; i < triviaQuestions.quest.length; i++){
 	var strQuestion = $("<div>");
-	var strChoice = $('<input type="radio" name="optradio" />');
+	var strChoice = $("<input> type=\"radio>\"").attr({name: "optradio"});
+	$("#timer").text("Time Remaing: " + " Seconds");
+	$("#timer").append("<h2>" + setTimerSeconds + "</h2>");
+	strChoice.text(guess1[i]);
 	strQuestion.text(triviaQuestions.quest[i]);
 	console.log(triviaQuestions.quest[i]);
 	console.log(guess1[i]);
 	$("quest").append(strQuestion);
 	$("radio-inline").append(strChoice);
-
-
 	}
 
+// execute the run function after the questions load
+run();
 });
+
