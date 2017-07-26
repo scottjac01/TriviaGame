@@ -11,13 +11,11 @@
 .jumbotron{
 	background:green !important;
 }
-#timer {
+.timer {
   text-align: center;
   display: inline;
 }
-#quest {
-	text-align: center;
-}
-#choices {
-	text-align: center;
+.timeRemaining {
+  text-align: center;
+  display: inline;
 }
